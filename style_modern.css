@@ -393,6 +393,53 @@ h3 { margin: 0 0 12px; font-size: 1.25rem; }
 .credential-link:hover {
   text-decoration: underline;
 }
+/* Split credential card with badge on the right */
+.credential-card-split {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.credential-card-split .credential-info {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.credential-badge-wrap {
+  flex: 0 0 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.credential-badge-img {
+  width: 160px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: contain;
+  box-shadow: 0 6px 20px rgba(23, 32, 51, 0.08);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .credential-card-split {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .credential-badge-wrap {
+    flex: none;
+    width: 100%;
+    justify-content: flex-start;
+    margin-top: 8px;
+  }
+
+  .credential-badge-img {
+    width: 130px;
+  }
+}
 
 .credly-profile-link {
   margin-top: 20px;
