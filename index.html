@@ -6,6 +6,28 @@
   <meta name="description" content="Asad Ullah — Computer Scientist and M.S. graduate in Photogrammetry and Remote Sensing. Research in GeoAI, multimodal remote sensing, LiDAR, computer vision, and UAV sensing." />
   <title>Asad Ullah | GeoAI & Remote Sensing</title>
   <link rel="stylesheet" href="style_modern.css" />
+
+  <script>
+document.addEventListener("DOMContentLoaded", async () => {
+    const counterElement = document.getElementById("visit-count");
+
+    try {
+        const response = await fetch(
+            "https://api.counterapi.dev/v1/asadjbut-github-io/homepage/up"
+        );
+
+        const data = await response.json();
+
+        counterElement.textContent =
+            data.count ?? data.value ?? "—";
+
+    } catch (error) {
+        console.error("Visitor counter error:", error);
+        counterElement.textContent = "—";
+    }
+});
+</script>
+  
 </head>
 <body>
   <header class="site-header">
