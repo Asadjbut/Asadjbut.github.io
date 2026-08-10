@@ -9,32 +9,24 @@
   
 </head>
 <script>
-window.showVisitCount = function(data) {
-  const counter = document.getElementById("visit-count");
-
-  if (data && typeof data.visits !== "undefined") {
-    counter.textContent = data.visits;
-  } else {
-    counter.textContent = "—";
-  }
-};
-
 (function () {
-  const counter = document.getElementById("visit-count");
 
-  const script = document.createElement("script");
+  const counterElement = document.getElementById("visit-count");
 
-  script.src =
-    "https://script.google.com/macros/s/AKfycbyhtGwEZebctpjD_AfpAVPK4Ujfl8QS_AQRO4FbSXq_TJsi53HY6Sdnzd2Hk7pBgqgONg/exec" + Date.now();
+  const counterScript = document.createElement("script");
 
-  script.async = true;
+  counterScript.src =
+    "YOUR_GOOGLE_APPS_SCRIPT_EXEC_URL?t=" + Date.now();
 
-  script.onerror = function () {
-    counter.textContent = "—";
-    console.error("Visitor counter could not load.");
+  counterScript.async = true;
+
+  counterScript.onerror = function () {
+    counterElement.textContent = "—";
+    console.error("Visitor counter failed to load.");
   };
 
-  document.body.appendChild(script);
+  document.body.appendChild(counterScript);
+
 })();
 </script>
 <body>
