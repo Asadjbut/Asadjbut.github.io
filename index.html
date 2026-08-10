@@ -9,37 +9,33 @@
   
 </head>
 <script>
-    // Function called by Google Apps Script
-    window.showVisitCount = function(data) {
+window.showVisitCount = function(data) {
+  const counter = document.getElementById("visit-count");
 
-        const counter = document.getElementById("visit-count");
+  if (data && typeof data.visits !== "undefined") {
+    counter.textContent = data.visits;
+  } else {
+    counter.textContent = "—";
+  }
+};
 
-        if (data && typeof data.visits !== "undefined") {
-            counter.textContent = data.visits;
-        } else {
-            counter.textContent = "—";
-        }
-    };
+(function () {
+  const counter = document.getElementById("visit-count");
 
+  const script = document.createElement("script");
 
-    // Load visitor counter
-    (function () {
+  script.src =
+    "YOUR_APPS_SCRIPT_EXEC_URL?t=" + Date.now();
 
-        const script = document.createElement("script");
+  script.async = true;
 
-        script.src =
-            "https://script.google.com/macros/s/AKfycbzl6NuJkxsbZcck4h_II4AoCdrjp-4ng83QiLNaS5UmTdAOIMxQTPgYz2fkRP_0sOAvVQ/exec" +
-            "?t=" + Date.now();
+  script.onerror = function () {
+    counter.textContent = "—";
+    console.error("Visitor counter could not load.");
+  };
 
-        script.async = true;
-
-        script.onerror = function () {
-            document.getElementById("visit-count").textContent = "—";
-        };
-
-        document.body.appendChild(script);
-
-    })();
+  document.body.appendChild(script);
+})();
 </script>
 <body>
   <header class="site-header">
