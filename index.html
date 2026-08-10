@@ -467,5 +467,28 @@
       <span>Academic portfolio · GitHub Pages</span>
     </div>
   </footer>
+  <script>
+(function () {
+
+  const counterElement = document.getElementById("visit-count");
+
+  const counterScript = document.createElement("script");
+
+  counterScript.src =
+    "YOUR_GOOGLE_APPS_SCRIPT_EXEC_URL?t=" + Date.now();
+
+  counterScript.async = true;
+
+  counterScript.onerror = function () {
+    counterElement.textContent = "—";
+  };
+
+  document.body.appendChild(counterScript);
+
+})();
+</script>
+
+</body>
+</html>
 </body>
 </html>
