@@ -12,6 +12,23 @@
   --shadow: 0 14px 38px rgba(23, 32, 51, 0.08);
   --radius: 18px;
 }
+.visit-counter {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 11px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--muted);
+    white-space: nowrap;
+}
+
+#visit-count {
+    font-weight: 700;
+    color: var(--text);
+}
 
 * { box-sizing: border-box; }
 
