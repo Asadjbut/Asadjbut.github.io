@@ -461,6 +461,23 @@ h3 { margin: 0 0 12px; font-size: 1.25rem; }
 .credly-profile-link {
   margin-top: 20px;
 }
+.visit-counter {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 11px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--muted);
+    white-space: nowrap;
+}
+
+#visit-count {
+    font-weight: 700;
+    color: var(--text);
+}
 @media (max-width: 640px) {
   .container { width: min(calc(100% - 28px), var(--max-width)); }
   .section { padding: 64px 0; }
