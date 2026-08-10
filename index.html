@@ -8,25 +8,38 @@
   <link rel="stylesheet" href="style_modern.css" />
   
 </head>
-    <script>
-document.addEventListener("DOMContentLoaded", async () => {
-    const counterElement = document.getElementById("visit-count");
+<script>
+    // Function called by Google Apps Script
+    window.showVisitCount = function(data) {
 
-    try {
-        const response = await fetch(
-            "https://api.counterapi.dev/v1/asadjbut-github-io/homepage/up"
-        );
+        const counter = document.getElementById("visit-count");
 
-        const data = await response.json();
+        if (data && typeof data.visits !== "undefined") {
+            counter.textContent = data.visits;
+        } else {
+            counter.textContent = "—";
+        }
+    };
 
-        counterElement.textContent =
-            data.count ?? data.value ?? "—";
 
-    } catch (error) {
-        console.error("Visitor counter error:", error);
-        counterElement.textContent = "—";
-    }
-});
+    // Load visitor counter
+    (function () {
+
+        const script = document.createElement("script");
+
+        script.src =
+            "YOUR_APPS_SCRIPT_WEB_APP_URL" +
+            "?t=" + Date.now();
+
+        script.async = true;
+
+        script.onerror = function () {
+            document.getElementById("visit-count").textContent = "—";
+        };
+
+        document.body.appendChild(script);
+
+    })();
 </script>
 <body>
   <header class="site-header">
