@@ -9,14 +9,28 @@
   
 </head>
 <script>
+window.showVisitCount = function(data) {
+  const el = document.getElementById("visit-count");
+
+  if (el && data && typeof data.visits !== "undefined") {
+    el.textContent = data.visits;
+  }
+};
+
 (function () {
 
   const counterElement = document.getElementById("visit-count");
 
+  if (!counterElement) {
+    console.error("visit-count element not found.");
+    return;
+  }
+
   const counterScript = document.createElement("script");
 
   counterScript.src =
-    "https://script.google.com/macros/s/AKfycbxERFnvqDbHGSBGVU8_kqD803P5DpAJ9dck_Clg7RJMgjm2FC1JpsPa2o__0POXSIScAg/exec?t=" + Date.now();
+    "https://script.google.com/macros/s/AKfycbxERFnvqDbHGSBGVU8_kqD803P5DpAJ9dck_Clg7RJMgjm2FC1JpsPa2o__0POXSIScAg/exec?t=" +
+    Date.now();
 
   counterScript.async = true;
 
@@ -29,6 +43,7 @@
 
 })();
 </script>
+
 <body>
   <header class="site-header">
     <div class="container nav-wrap">
